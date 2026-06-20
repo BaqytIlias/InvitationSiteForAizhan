@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="kk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aizhan | Qyz Uzatu</title>
+  <meta name="description" content="Aizhan қыз ұзату тойына арналған электронды шақыру." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="assets/pechat.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="is-locked">
+  <div class="page-shell">
+    <button class="music-button" id="musicButton" type="button" aria-label="Музыканы қосу" hidden>
+      <img class="music-ring" src="assets/pinkmusiccircle.png" alt="" aria-hidden="true" />
+      <img class="music-icon" id="musicIcon" src="assets/musicicon.png" alt="" aria-hidden="true" />
+    </button>
+
+    <section class="intro-section" id="introSection" aria-label="Шақыру конверті">
+      <div class="stage closed-stage" id="closedStage">
+        <div class="intro-title">
+          <!-- Bride name is also controlled in script.js: SETTINGS.brideName -->
+          <h1 class="intro-name" data-bride-name style="margin-left: -50px;font-size: 7.9rem;"><span
+              class="name-capital">A</span><span class="name-rest">izhan</span></h1>
+          <p style="margin-left: 200px; font-size: 1.58rem; margin-top: -35px;">QYZ UZATU</p>
+        </div>
+
+        <button class="envelope-button" id="openInvitation" type="button" aria-label="Конвертті ашу">
+          <img class="closed-envelope" src="assets/convert.png" alt="Жабық конверт" />
+          <img class="closed-seal" src="assets/pechat.png" alt="" aria-hidden="true" />
+        </button>
+
+        <p class="tap-hint">КОНВЕРТТІ БАСЫҢЫЗ</p>
+        <img class="intro-flowers" src="assets/cvety.png" alt="" aria-hidden="true" />
+      </div>
+
+      <div class="stage open-stage" id="openStage" aria-hidden="true">
+        <img class="open-rose open-rose-left" src="assets/rose.png" alt="" aria-hidden="true" />
+        <img class="open-rose open-rose-right" src="assets/rose.png" alt="" aria-hidden="true" />
+
+        <div class="open-envelope-wrap">
+          <img class="open-envelope" src="assets/openconvertfinal.png" alt="Ашық конверт" />
+          <img class="open-seal" src="assets/pechat_A.png" alt="" aria-hidden="true" />
+        </div>
+
+        <p class="scroll-hint">ЖОҒАРЫ ЖЫЛЖЫТЫҢЫЗ</p>
+      </div>
+    </section>
+
+    <main id="content" hidden>
+      <section class="paper-section content-section" aria-labelledby="invitationTitle">
+        <img class="decor-oyu decor-oyu-left" src="assets/oyu.png" alt="" aria-hidden="true" />
+        <img class="decor-oyu decor-oyu-right" src="assets/oyu.png" alt="" aria-hidden="true" />
+
+        <div class="paper-card" data-reveal>
+          <img class="paper-image" src="assets/list.png" alt="" aria-hidden="true" />
+          <div class="paper-copy">
+            <!-- Invitation text can be edited here. -->
+            <h2 id="invitationTitle">Құрметті қонақтар!</h2>
+            <p>Сіздерді аяулы</p>
+            <p class="script-name script-split" data-bride-name>Айжан</p>
+            <p>
+              қызымыздың ұзату тойына арналған ақ дастарханымыздың қадірлі
+              қонағы болуға шақырамыз!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="calendar-section content-section" aria-labelledby="dateTitle">
+        <img class="bird bird-left" src="assets/bird.png" alt="" aria-hidden="true" data-float />
+        <img class="bird bird-right" src="assets/bird.png" alt="" aria-hidden="true" data-float />
+
+        <div class="calendar-block" data-reveal>
+          <p class="section-kicker">Қыз ұзату күні</p>
+          <h2 id="dateTitle" data-event-date>11 шілде 2026</h2>
+          <!-- Change event date and time in script.js: SETTINGS.eventDateLabel / SETTINGS.eventTime -->
+          <div class="calendar-widget" aria-label="Күнтізбе">
+            <div class="calendar-topline">
+              <div class="calendar-month">ШІЛДЕ</div>
+              <div class="calendar-year">2026</div>
+            </div>
+            <div class="weekday-row" aria-hidden="true">
+              <span>ДС</span>
+              <span>СС</span>
+              <span>СР</span>
+              <span>БС</span>
+              <span>ЖМ</span>
+              <span>СБ</span>
+              <span>ЖС</span>
+            </div>
+            <div class="calendar-grid">
+              <i aria-hidden="true"></i>
+              <i aria-hidden="true"></i>
+              <b>1</b>
+              <b>2</b>
+              <b>3</b>
+              <b>4</b>
+              <b>5</b>
+              <b>6</b>
+              <b>7</b>
+              <b>8</b>
+              <b>9</b>
+              <b>10</b>
+              <b class="event-day">11</b>
+              <b>12</b>
+              <b>13</b>
+              <b>14</b>
+              <b>15</b>
+              <b>16</b>
+              <b>17</b>
+              <b>18</b>
+              <b>19</b>
+              <b>20</b>
+              <b>21</b>
+              <b>22</b>
+              <b>23</b>
+              <b>24</b>
+              <b>25</b>
+              <b>26</b>
+              <b>27</b>
+              <b>28</b>
+              <b>29</b>
+              <b>30</b>
+              <b>31</b>
+            </div>
+          </div>
+          <p class="time-text" data-event-time>18:00</p>
+        </div>
+      </section>
+
+      <section class="location-section content-section" aria-labelledby="locationTitle">
+        <div class="location-copy" data-reveal>
+          <h2 id="locationTitle" class="script-split"><span class="name-capital">М</span><span
+              class="name-rest">екенжайы</span></h2>
+          <!-- Change address and map link in script.js: SETTINGS.address / SETTINGS.mapUrl -->
+          <p class="address" data-address>Тараз қаласы, Төле би көшесі 59, Grand Hall мейрамханасы</p>
+          <a class="map-button" id="mapButton" href="https://go.2gis.com/replace-this-link" target="_blank"
+            rel="noreferrer">
+            КАРТАҒА ӨТУ
+          </a>
+        </div>
+        <img class="dastarkhan" src="assets/dastarkhan.png" alt="Дастархан" data-reveal />
+      </section>
+
+      <section class="timing-section content-section" aria-labelledby="timingTitle">
+        <div class="timing-inner" data-reveal>
+          <h2 id="timingTitle">Timing</h2>
+          <img class="timing-line-flower timing-line-flower-start" src="assets/timing-line-flower.png" alt=""
+            aria-hidden="true" />
+          <img class="timing-line-flower timing-line-flower-end" src="assets/timing-line-flower.png" alt=""
+            aria-hidden="true" />
+          <!-- Edit timeline items here or move them to script.js if backend connection is needed later. -->
+          <svg class="timing-line" viewBox="0 0 430 610" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path
+              d="M78 38 C174 33 228 82 224 139 C220 198 134 234 86 307 C32 389 57 494 178 487 C291 481 273 343 188 358 C116 371 136 466 252 431 C319 411 360 398 430 407" />
+          </svg>
+          <ol class="timeline">
+            <li>
+              <time>18:00</time>
+              <span>Қонақтардың жиналуы</span>
+            </li>
+            <li>
+              <time>19:00</time>
+              <span>Тойдың басталуы</span>
+            </li>
+            <li>
+              <time>00:00</time>
+              <span>Қызымызды ұзату рәсімі</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="rsvp-section content-section" aria-labelledby="rsvpTitle">
+        <div class="rsvp-panel" data-reveal>
+          <h2 id="rsvpTitle" class="script-split"><span class="name-capital">С</span><span
+              class="name-rest">ауалнама</span></h2>
+          <!-- RSVP logic is in script.js. It is local-only and ready for backend connection later. -->
+          <form id="rsvpForm" novalidate>
+            <label class="field-label" for="guestName">Аты-жөніңіз</label>
+            <input id="guestName" name="guestName" type="text" autocomplete="name" placeholder="Аты-жөніңіз" />
+
+            <fieldset class="radio-group">
+              <legend>Қатысуыңыз</legend>
+              <label>
+                <input type="radio" name="attendance" value="Келемін" />
+                <span>Келемін</span>
+              </label>
+              <label>
+                <input type="radio" name="attendance" value="Жұбыммен келемін" />
+                <span>Жұбыммен келемін</span>
+              </label>
+              <label>
+                <input type="radio" name="attendance" value="Келе алмаймын" />
+                <span>Келе алмаймын</span>
+              </label>
+            </fieldset>
+
+            <button class="submit-button" type="submit">Жауапты жіберу</button>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="final-section content-section" aria-labelledby="finalTitle">
+        <div class="final-copy" data-reveal>
+          <h2 id="finalTitle" class="final-script">
+            <span class="final-script-line script-split"><span class="name-capital">К</span><span class="name-rest">уанышымыздын</span></span>
+            <span class="final-script-line">куасі болыныздар!</span>
+          </h2>
+          <div class="final-sprigs" aria-hidden="true">
+            <img class="final-sprig final-sprig-rose" src="assets/rose.png" alt="" />
+            <img class="final-sprig final-sprig-violet" src="assets/rose.png" alt="" />
+          </div>
+          <p class="final-script">
+            <span class="final-script-line script-split"><span class="name-capital">К</span><span class="name-rest">урметпен</span></span>
+            <span class="final-script-line script-split"><span class="name-capital">А</span><span class="name-rest">жар - Илиас.</span></span>
+          </p>
+        </div>
+
+        <div class="countdown" data-reveal aria-label="Тойға дейінгі уақыт">
+          <div class="count-card">
+            <strong id="days">00</strong>
+            <span>күн</span>
+          </div>
+          <div class="count-card">
+            <strong id="hours">00</strong>
+            <span>сағат</span>
+          </div>
+          <div class="count-card">
+            <strong id="minutes">00</strong>
+            <span>минут</span>
+          </div>
+          <div class="count-card">
+            <strong id="seconds">00</strong>
+            <span>секунд</span>
+          </div>
+        </div>
+
+        <img class="bunchflowers" src="assets/bunchflowers.png" alt="" aria-hidden="true" />
+      </section>
+    </main>
+  </div>
+
+  <audio id="bgMusic" preload="none" loop></audio>
+  <script src="script.js"></script>
+</body>
+
+</html>
