@@ -3,23 +3,23 @@ const SETTINGS = {
   brideName: "Aizhan",
 
   // Change event date label here. Keep this readable for guests.
-  eventDateLabel: "11 шілде 2026",
+  eventDateLabel: "20 тамыз 2026",
 
   // Change event time here.
   eventTime: "18:00",
 
   // Change address here.
-  address: "Алматы қаласы, Төле би көшесі 59, Grand Hall мейрамханасы",
+  address: "Тараз қаласы, Ташкент көшесі 268, Golden Hall мейрамханасы",
 
   // Replace this with the final 2GIS link.
-  mapUrl: "https://go.2gis.com/replace-this-link",
+  mapUrl: "https://2gis.kz/taraz/geo/70000001053565927",
 
   // Add a music file path when ready, for example: "assets/music.mp3".
-  musicFile: "",
+  musicFile: "assets/music.mp3",
 
   // Change countdown date here when the exact date is known.
   // Use ISO format so all phones parse it correctly.
-  countdownDateISO: "2026-07-11T18:00:00+05:00",
+  countdownDateISO: "2026-08-20T18:00:00+05:00",
 };
 
 const body = document.body;
@@ -37,6 +37,7 @@ const mapButton = document.getElementById("mapButton");
 
 let invitationOpened = false;
 let audioReady = false;
+let musicWanted = true;
 
 function renderSplitScriptText(node, text) {
   const letters = Array.from(text.trim());
@@ -81,9 +82,44 @@ function applySettings() {
 
   if (SETTINGS.musicFile) {
     bgMusic.src = SETTINGS.musicFile;
+    bgMusic.volume = 0.72;
     audioReady = true;
   } else {
     musicButton.title = "Музыка файлын script.js ішіндегі SETTINGS.musicFile жолына қосыңыз";
+  }
+}
+
+function setMusicUi(isPlaying) {
+  musicButton.classList.toggle("is-playing", isPlaying);
+  musicIcon.src = isPlaying ? "assets/pauseicon.png" : "assets/musicicon.png";
+  musicButton.setAttribute("aria-label", isPlaying ? "Музыканы тоқтату" : "Музыканы қосу");
+}
+
+async function startMusic() {
+  if (!audioReady) return false;
+
+  musicWanted = true;
+
+  try {
+    await bgMusic.play();
+    setMusicUi(true);
+    return true;
+  } catch {
+    setMusicUi(false);
+    return false;
+  }
+}
+
+function stopMusic() {
+  musicWanted = false;
+  bgMusic.pause();
+  setMusicUi(false);
+}
+
+function unlockAutoplay(event) {
+  if (event?.target?.closest?.("#musicButton")) return;
+  if (musicWanted && bgMusic.paused) {
+    void startMusic();
   }
 }
 
@@ -97,6 +133,7 @@ function openInvitation() {
   closedStage.setAttribute("aria-hidden", "true");
   content.hidden = false;
   musicButton.hidden = false;
+  void startMusic();
 
   window.setTimeout(() => {
     document.querySelectorAll("[data-reveal]").forEach((node) => revealObserver.observe(node));
@@ -117,19 +154,9 @@ async function toggleMusic() {
   }
 
   if (bgMusic.paused) {
-    try {
-      await bgMusic.play();
-      musicButton.classList.add("is-playing");
-      musicIcon.src = "assets/pauseicon.png";
-      musicButton.setAttribute("aria-label", "Музыканы тоқтату");
-    } catch {
-      musicButton.classList.remove("is-playing");
-    }
+    await startMusic();
   } else {
-    bgMusic.pause();
-    musicButton.classList.remove("is-playing");
-    musicIcon.src = "assets/musicicon.png";
-    musicButton.setAttribute("aria-label", "Музыканы қосу");
+    stopMusic();
   }
 }
 
@@ -188,9 +215,12 @@ function handleRsvpSubmit(event) {
 }
 
 applySettings();
+void startMusic();
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
 
 openButton.addEventListener("click", openInvitation);
 musicButton.addEventListener("click", toggleMusic);
+window.addEventListener("pointerdown", unlockAutoplay, { capture: true });
+window.addEventListener("keydown", unlockAutoplay, { capture: true });
 rsvpForm.addEventListener("submit", handleRsvpSubmit);
