@@ -1424,7 +1424,7 @@ img {
 }
 
 .final-copy h2 {
-  color: #a4b22a;
+  color: #627954;
   font-family: "Bickham Script Pro 3", "Great Vibes", var(--serif-display);
   font-size: clamp(3.6rem, 14vw, 5.9rem);
   font-style: normal;
@@ -2019,6 +2019,26 @@ img {
   .bunchflowers {
     bottom: -82px;
     width: min(128vw, 610px);
+  }
+}
+
+@media (max-width: 480px) and (max-height: 700px) {
+  .final-section {
+    padding-top: 34px;
+  }
+
+  .final-copy {
+    transform: translateY(-6px);
+  }
+
+  .countdown {
+    margin-top: 8px;
+    transform: translateY(-56px);
+  }
+
+  .bunchflowers {
+    bottom: -122px;
+    width: min(122vw, 580px);
   }
 }
 

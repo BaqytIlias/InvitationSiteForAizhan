@@ -41,6 +41,7 @@ const mapButton = document.getElementById("mapButton");
 let invitationOpened = false;
 let audioReady = false;
 let musicWanted = true;
+let lifecyclePausedMusic = false;
 
 function renderSplitScriptText(node, text) {
   const letters = Array.from(text.trim());
@@ -117,6 +118,33 @@ function stopMusic() {
   musicWanted = false;
   bgMusic.pause();
   setMusicUi(false);
+}
+
+function pauseMusicForLifecycle() {
+  if (!audioReady) return;
+
+  if (!bgMusic.paused) {
+    lifecyclePausedMusic = true;
+  }
+
+  bgMusic.pause();
+  setMusicUi(false);
+}
+
+function resumeMusicAfterLifecyclePause() {
+  if (!audioReady || !musicWanted || !lifecyclePausedMusic || document.hidden) return;
+
+  lifecyclePausedMusic = false;
+  void startMusic();
+}
+
+function handlePageVisibilityChange() {
+  if (document.hidden || document.visibilityState === "hidden") {
+    pauseMusicForLifecycle();
+    return;
+  }
+
+  resumeMusicAfterLifecyclePause();
 }
 
 function unlockAutoplay(event) {
@@ -258,4 +286,10 @@ openButton.addEventListener("click", openInvitation);
 musicButton.addEventListener("click", toggleMusic);
 window.addEventListener("pointerdown", unlockAutoplay, { capture: true });
 window.addEventListener("keydown", unlockAutoplay, { capture: true });
+document.addEventListener("visibilitychange", handlePageVisibilityChange);
+window.addEventListener("pagehide", pauseMusicForLifecycle);
+window.addEventListener("blur", pauseMusicForLifecycle);
+window.addEventListener("freeze", pauseMusicForLifecycle);
+window.addEventListener("pageshow", resumeMusicAfterLifecyclePause);
+window.addEventListener("focus", resumeMusicAfterLifecyclePause);
 rsvpForm.addEventListener("submit", handleRsvpSubmit);
