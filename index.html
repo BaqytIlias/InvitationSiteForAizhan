@@ -10,12 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/pechat.png" />
-  <link rel="stylesheet" href="styles.css?v=20260820-heart-breath" />
+  <link rel="stylesheet" href="styles.css?v=20260820-open-roses-position-2" />
 </head>
 
 <body class="is-locked">
   <div class="page-shell">
-    <button class="music-button" id="musicButton" type="button" aria-label="Музыканы қосу">
+    <button class="music-button" id="musicButton" type="button" aria-label="Музыканы қосу" hidden>
       <img class="music-ring" src="assets/pinkmusiccircle.png" alt="" aria-hidden="true" />
       <img class="music-icon" id="musicIcon" src="assets/musicicon.png" alt="" aria-hidden="true" />
     </button>
@@ -26,7 +26,7 @@
           <!-- Bride name is also controlled in script.js: SETTINGS.brideName -->
           <h1 class="intro-name" data-bride-name><span class="name-capital">A</span><span class="name-rest">izhan</span>
           </h1>
-          <p>QYZ UZATU</p>
+          <p style="margin-left:180px; margin-top: 1px">QYZ UZATU</p>
         </div>
 
         <button class="envelope-button" id="openInvitation" type="button" aria-label="Конвертті ашу">
@@ -184,6 +184,7 @@
               <b>31</b>
             </div>
           </div>
+          <p class="time-textp">САҒАТ</p>
           <p class="time-text" data-event-time>18:00</p>
         </div>
       </section>
@@ -228,7 +229,7 @@
           <h2 id="locationTitle" class="script-split"><span class="name-capital">М</span><span
               class="name-rest">екенжайы:</span></h2>
           <!-- Change address and map link in script.js: SETTINGS.address / SETTINGS.mapUrl -->
-          <p class="address" data-address>Тараз қаласы, Ташкент көшесі 268, Golden Hall мейрамханасы</p>
+          <p class="address" data-address>ТАРАЗ ҚАЛАСЫ, ТАШКЕНТ КӨШЕСІ 268, GOLDEN HALL МЕЙРАМХАНАСЫ</p>
           <a class="map-button" id="mapButton" href="https://2gis.kz/taraz/geo/70000001053565927" target="_blank"
             rel="noreferrer">
             КАРТАҒА ӨТУ
@@ -241,7 +242,7 @@
         <div class="rsvp-panel" data-reveal>
           <h2 id="rsvpTitle" class="script-split"><span class="name-capital">С</span><span
               class="name-rest">ауалнама</span></h2>
-          <!-- RSVP logic is in script.js. It is local-only and ready for backend connection later. -->
+          <!-- RSVP logic is in script.js. Add SETTINGS.rsvpWebAppUrl to send answers to Google Sheets. -->
           <form id="rsvpForm" novalidate>
             <label class="field-label" for="guestName">Аты-жөніңіз</label>
             <input id="guestName" name="guestName" type="text" autocomplete="name" placeholder="Аты-жөніңіз" />
@@ -277,7 +278,7 @@
         </div>
         <div class="final-copy" data-reveal>
           <h2 id="finalTitle" class="sr-only">Қуанышымыздың куәсі болыңыздар!</h2>
-          <img class="final-message-image" src="assets/photo_5314361218476743386_y-removebg-preview (2).png"
+          <img class="final-message-image" src="assets/photo_2026-06-22_13-01-15-removebg-preview.png"
             alt="Қуанышымыздың куәсі болыңыздар!" />
           <div class="final-sprigs" aria-hidden="true">
             <img class="final-sprig final-sprig-rose" src="assets/rose.png" alt="" />
@@ -316,7 +317,7 @@
   </div>
 
   <audio id="bgMusic" preload="auto" autoplay loop></audio>
-  <script src="script.js?v=20260820-music-toggle"></script>
+  <script src="script.js?v=20260820-open-envelope-music"></script>
 </body>
 
 </html>

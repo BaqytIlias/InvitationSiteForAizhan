@@ -9,17 +9,20 @@ const SETTINGS = {
   eventTime: "18:00",
 
   // Change address here.
-  address: "Тараз қаласы, Ташкент көшесі 268, Golden Hall мейрамханасы",
+  address: "ТАРАЗ ҚАЛАСЫ, ТАШКЕНТ КӨШЕСІ 268, GOLDEN HALL МЕЙРАМХАНАСЫ",
 
   // Replace this with the final 2GIS link.
   mapUrl: "https://2gis.kz/taraz/geo/70000001053565927",
 
   // Add a music file path when ready, for example: "assets/music.mp3".
-  musicFile: "assets/music.mp3",
+  musicFile: "assets/aizhan-music-20260624.mp3",
 
   // Change countdown date here when the exact date is known.
   // Use ISO format so all phones parse it correctly.
   countdownDateISO: "2026-08-20T18:00:00+05:00",
+
+  // Paste your deployed Google Apps Script Web App URL here to save RSVP answers into Google Sheets.
+  rsvpWebAppUrl: "https://script.google.com/macros/s/AKfycbz9QbP9Ceqnqonvvet8V6qzYHL8h4QvkAV8wuFKox42r1EVMolXdUr-T_fx6m9BvPtoYw/exec",
 };
 
 const body = document.body;
@@ -132,8 +135,11 @@ function openInvitation() {
   openStage.setAttribute("aria-hidden", "false");
   closedStage.setAttribute("aria-hidden", "true");
   content.hidden = false;
-  musicButton.hidden = false;
   void startMusic();
+
+  window.setTimeout(() => {
+    musicButton.hidden = false;
+  }, 780);
 
   window.setTimeout(() => {
     document.querySelectorAll("[data-reveal]").forEach((node) => revealObserver.observe(node));
@@ -191,12 +197,25 @@ function updateCountdown() {
   document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 }
 
-function handleRsvpSubmit(event) {
+async function submitRsvpToSheets(payload) {
+  if (!SETTINGS.rsvpWebAppUrl) {
+    throw new Error("Google Sheets Web App URL is not configured");
+  }
+
+  await fetch(SETTINGS.rsvpWebAppUrl, {
+    method: "POST",
+    mode: "no-cors",
+    body: new URLSearchParams(payload),
+  });
+}
+
+async function handleRsvpSubmit(event) {
   event.preventDefault();
 
   const formData = new FormData(rsvpForm);
   const guestName = String(formData.get("guestName") || "").trim();
   const attendance = String(formData.get("attendance") || "").trim();
+  const submitButton = rsvpForm.querySelector(".submit-button");
 
   formMessage.classList.remove("is-error", "is-success");
 
@@ -206,12 +225,28 @@ function handleRsvpSubmit(event) {
     return;
   }
 
-  formMessage.textContent = "Рақмет! Жауабыңыз сақталды.";
-  formMessage.classList.add("is-success");
+  const payload = {
+    guestName,
+    attendance,
+    submittedAt: new Date().toISOString(),
+    pageUrl: window.location.href,
+  };
 
-  // Connect backend or messenger/API submission here when needed.
-  console.info("RSVP response:", { guestName, attendance });
-  rsvpForm.reset();
+  submitButton.disabled = true;
+  formMessage.textContent = "Жауабыңыз жіберіліп жатыр...";
+
+  try {
+    await submitRsvpToSheets(payload);
+    formMessage.textContent = "Рақмет! Жауабыңыз Google Sheets кестесіне жіберілді.";
+    formMessage.classList.add("is-success");
+    rsvpForm.reset();
+  } catch (error) {
+    console.error("RSVP submission failed:", error);
+    formMessage.textContent = "Google Sheets URL қосылмаған. Web App URL-ды script.js ішіндегі SETTINGS.rsvpWebAppUrl жолына қойыңыз.";
+    formMessage.classList.add("is-error");
+  } finally {
+    submitButton.disabled = false;
+  }
 }
 
 applySettings();
