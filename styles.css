@@ -1396,7 +1396,7 @@ img {
   --o: 0.82;
   --r: -42deg;
   right: 8%;
-  top: 2%;
+  top: 22%;
 }
 
 .final-center-flower {
@@ -1411,8 +1411,8 @@ img {
   --w: min(15vw, 60px);
   --o: 0.76;
   --r: -56deg;
-  right: 6%;
-  top: 45%;
+  right: 7%;
+  top: 62%;
 }
 
 .final-pink-stem {
@@ -1847,7 +1847,7 @@ img {
 
   .final-leaf {
     right: 7%;
-    top: 2%;
+    top: 23%;
   }
 
   .final-center-flower {
@@ -1856,8 +1856,8 @@ img {
   }
 
   .final-purple {
-    right: 4%;
-    top: 46%;
+    right: 5%;
+    top: 61%;
   }
 
   .final-pink-stem {
@@ -2024,20 +2024,20 @@ img {
 
 @media (max-width: 480px) and (max-height: 700px) {
   .final-section {
-    padding-top: 34px;
+    padding-top: 28px;
   }
 
   .final-copy {
-    transform: translateY(-6px);
+    transform: translateY(-24px);
   }
 
   .countdown {
-    margin-top: 8px;
-    transform: translateY(-56px);
+    margin-top: 26px;
+    transform: translateY(-18px);
   }
 
   .bunchflowers {
-    bottom: -122px;
+    bottom: -64px;
     width: min(122vw, 580px);
   }
 }
