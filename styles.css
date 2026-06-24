@@ -830,11 +830,11 @@ img {
 
 .time-textp {
   font-family: var(--serif-display);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #ffffff;
   text-align: center;
-  margin: -10px 0 -50px 0;
+  margin: -10px 0 30px 0;
 }
 
 .bird {
@@ -1424,12 +1424,12 @@ img {
 }
 
 .final-copy h2 {
-  color: #adac55;
+  color: #a4b22a;
   font-family: "Bickham Script Pro 3", "Great Vibes", var(--serif-display);
   font-size: clamp(3.6rem, 14vw, 5.9rem);
   font-style: normal;
   line-height: 0.84;
-  font-weight: 400;
+  font-weight: 600;
   text-shadow: 0 9px 18px rgba(135, 145, 92, 0.12);
 }
 
