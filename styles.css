@@ -828,7 +828,7 @@ img {
   text-align: center;
 }
 
-.time-textp{
+.time-textp {
   font-family: var(--serif-display);
   font-size: 2rem;
   font-weight: 400;
@@ -916,6 +916,7 @@ img {
   font-size: clamp(4.65rem, 18vw, 5.85rem);
   line-height: 0.82;
   font-weight: 400;
+  margin-bottom: 30px;
 }
 
 .address {
@@ -1777,8 +1778,50 @@ img {
     width: min(calc(100vw - 32px), 390px);
   }
 
+  .rsvp-section {
+    min-height: max(124svh, 1040px);
+    padding: 184px 20px 210px;
+  }
+
+  .rsvp-section::before {
+    height: 118px;
+    background-size: 720px 118px;
+  }
+
+  .rsvp-section::after {
+    height: 116px;
+    background-size: 720px 116px;
+  }
+
+  .rsvp-panel {
+    width: min(calc(100vw - 40px), 430px);
+  }
+
   .rsvp-panel h2 {
-    font-size: clamp(5.5rem, 22vw, 7.4rem);
+    margin-bottom: 54px;
+    font-size: clamp(6.25rem, 24vw, 8rem);
+    line-height: 0.86;
+  }
+
+  .radio-group {
+    gap: 24px;
+    margin: 40px 0 48px;
+  }
+
+  .radio-group label {
+    min-height: 62px;
+    gap: 20px;
+    font-size: clamp(1.26rem, 5.2vw, 1.48rem);
+  }
+
+  .radio-group input {
+    width: 50px;
+    height: 50px;
+  }
+
+  .submit-button {
+    min-height: 82px;
+    font-size: clamp(1.36rem, 5.6vw, 1.74rem);
   }
 
   .location-leaf {
@@ -1930,6 +1973,30 @@ img {
   .dastarkhan {
     width: min(104vw, 480px);
     margin-top: 22px;
+  }
+
+  .rsvp-section {
+    min-height: max(146svh, 1020px);
+    padding-top: 154px;
+    padding-bottom: 190px;
+  }
+
+  .rsvp-panel h2 {
+    margin-bottom: 42px;
+    font-size: clamp(5.8rem, 23vw, 7.3rem);
+  }
+
+  .radio-group {
+    gap: 18px;
+    margin: 30px 0 40px;
+  }
+
+  .radio-group label {
+    min-height: 56px;
+  }
+
+  .submit-button {
+    min-height: 76px;
   }
 
   .final-section {

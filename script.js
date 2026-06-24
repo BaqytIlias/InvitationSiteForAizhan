@@ -237,7 +237,7 @@ async function handleRsvpSubmit(event) {
 
   try {
     await submitRsvpToSheets(payload);
-    formMessage.textContent = "Рақмет! Жауабыңыз Google Sheets кестесіне жіберілді.";
+    formMessage.textContent = "Рахмет, жауабыңыз қабылданды.";
     formMessage.classList.add("is-success");
     rsvpForm.reset();
   } catch (error) {
