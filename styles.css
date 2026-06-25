@@ -158,8 +158,8 @@ img {
   justify-content: center;
   padding: 36px 20px 30px;
   transition:
-    opacity 960ms ease,
-    transform 960ms ease;
+    opacity 2000ms ease,
+    transform 2000ms ease;
 }
 
 .closed-stage {
@@ -281,7 +281,6 @@ img {
   z-index: 3;
   display: grid;
   justify-items: center;
-  margin-bottom: clamp(8px, 2svh, 18px);
   text-align: center;
 }
 
@@ -298,7 +297,7 @@ img {
 .intro-title h1 {
   font-family: var(--script-display);
   margin-left: 0;
-  font-size: clamp(6.45rem, 24vw, 7.9rem);
+  font-size: 9rem;
   line-height: 0.84;
   color: #adac55;
   text-shadow: 0 8px 22px rgba(89, 98, 54, 0.18);
@@ -366,7 +365,7 @@ img {
 
 .closed-envelope {
   width: 100%;
-  filter: drop-shadow(0 22px 32px rgba(69, 56, 34, 0.22));
+  /* filter: drop-shadow(0 22px 32px rgba(69, 56, 34, 0.22)); */
 }
 
 .closed-seal {
@@ -375,7 +374,7 @@ img {
   left: 50%;
   top: 56%;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 10px 22px rgba(195, 95, 139, 0.28));
+  /* filter: drop-shadow(0 10px 22px rgba(195, 95, 139, 0.28)); */
 }
 
 .tap-hint,
@@ -384,7 +383,7 @@ img {
   z-index: 3;
   margin: 12px 0 0;
   font-family: var(--serif-display);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 400;
   color: var(--deep-sage);
   text-align: center;
@@ -407,7 +406,7 @@ img {
   bottom: 20%;
   width: min(54vw, 220px);
   opacity: 0.9;
-  filter: drop-shadow(0 18px 28px rgba(87, 94, 57, 0.18));
+  /* filter: drop-shadow(0 18px 28px rgba(87, 94, 57, 0.18)); */
   pointer-events: none;
   transform: rotate(30deg);
   transform-origin: 50% 50%;
@@ -419,10 +418,10 @@ img {
   width: min(102vw, 462px);
   opacity: 0;
   transform: translateY(100svh) scale(0.94);
-  filter: drop-shadow(0 24px 34px rgba(63, 52, 31, 0.2));
+  /* filter: drop-shadow(0 24px 34px rgba(63, 52, 31, 0.2)); */
   transition:
-    opacity 2300ms cubic-bezier(0.19, 1, 0.22, 1) 150ms,
-    transform 2300ms cubic-bezier(0.19, 1, 0.22, 1) 150ms;
+    opacity 3300ms cubic-bezier(0.19, 1, 0.22, 1) 350ms,
+    transform 3300ms cubic-bezier(0.19, 1, 0.22, 1) 350ms;
   will-change: opacity, transform;
 }
 
@@ -445,15 +444,15 @@ img {
   top: 65%;
   width: 30%;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 10px 28px rgba(211, 90, 138, 0.24));
+  /* filter: drop-shadow(0 10px 28px rgba(211, 90, 138, 0.24)); */
 }
 
 .open-rose {
   position: absolute;
   z-index: 6;
-  width: min(72vw, 280px);
+  width: min(90vw, 350px);
   opacity: 0;
-  filter: drop-shadow(0 22px 30px rgba(76, 59, 39, 0.16));
+  /* filter: drop-shadow(0 22px 30px rgba(76, 59, 39, 0.16)); */
   pointer-events: none;
   transition:
     opacity 1450ms ease 520ms,
@@ -462,9 +461,8 @@ img {
 
 .open-rose-left {
   z-index: 1;
-  left: -82px;
-  top: 18px;
-  width: min(58vw, 230px);
+  left: -42px;
+  top: -5px;
   transform: translateX(-42px) rotate(47deg);
 }
 
@@ -489,7 +487,8 @@ img {
 
 .scroll-hint {
   margin-top: 64px;
-  color: var(--rose);
+  color: black;
+  z-index: 0;
 }
 
 .music-button {
@@ -504,7 +503,7 @@ img {
   border: 0;
   border-radius: 50%;
   background: transparent;
-  filter: drop-shadow(0 12px 20px rgba(91, 56, 67, 0.18));
+  /* filter: drop-shadow(0 12px 20px rgba(91, 56, 67, 0.18)); */
 }
 
 .music-ring {
@@ -532,6 +531,7 @@ img {
   place-items: start center;
   padding-top: 28px;
   padding-bottom: 0;
+
   z-index: 2;
   overflow: visible;
   background:
@@ -562,7 +562,7 @@ img {
 
 .paper-image {
   width: 100%;
-  filter: drop-shadow(0 24px 36px rgba(65, 54, 36, 0.18));
+  /* filter: drop-shadow(0 24px 36px rgba(65, 54, 36, 0.18)); */
 }
 
 .paper-copy {
@@ -607,7 +607,7 @@ img {
   line-height: 0.78;
   color: #adac55;
   text-transform: none;
-  text-shadow: 0 12px 20px rgba(143, 155, 91, 0.14);
+  /* text-shadow: 0 12px 20px rgba(143, 155, 91, 0.14); */
 }
 
 .paper-body {
@@ -640,6 +640,7 @@ img {
   place-items: start center;
   padding-top: 60px;
   margin-top: -50px;
+  margin-bottom: 20px;
   background: #a4b22a;
   color: var(--ivory);
 }
@@ -895,6 +896,7 @@ img {
   z-index: 4;
   width: min(88vw, 380px);
   margin: 0 auto;
+
 }
 
 .location-copy h2,
@@ -1201,6 +1203,10 @@ img {
 .rsvp-section {
   min-height: 100svh;
   padding: 128px 24px 112px;
+  overflow: hidden;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  box-shadow: 0 -3px 0 #fffaf1;
   background:
     radial-gradient(circle at 50% 22%, rgba(255, 209, 226, 0.32), transparent 34%),
     linear-gradient(180deg, #ef8aba 0%, #f398c4 54%, #ee85b5 100%);
@@ -1213,23 +1219,26 @@ img {
   left: -18%;
   width: 136%;
   height: 82px;
-  background-repeat: repeat-x;
-  background-size: 720px 82px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 82px;
   pointer-events: none;
+  transform-origin: center top;
   animation: waveMotion 7200ms ease-in-out infinite alternate;
 }
 
 .rsvp-section::before {
-  top: -1px;
+  top: -16px;
   height: 132px;
-  background-size: 720px 132px;
+  background-size: 100% 132px;
   background-image: url("data:image/svg+xml,%3Csvg width='720' height='132' viewBox='0 0 720 132' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H720V62C682 44 650 42 604 64C556 87 512 80 466 61C418 41 379 40 335 67C299 89 266 84 226 58C181 30 132 42 96 63C61 83 34 78 0 56V0Z' fill='%23fffaf1'/%3E%3Cpath d='M0 56C34 78 61 83 96 63C132 42 181 30 226 58C266 84 299 89 335 67C379 40 418 41 466 61C512 80 556 87 604 64C650 42 682 44 720 62V101C682 84 650 82 604 103C558 125 512 117 466 97C420 78 381 79 335 103C296 124 263 119 226 95C180 65 134 77 96 98C60 118 34 113 0 94V56Z' fill='%23df6fa7' fill-opacity='0.54'/%3E%3C/svg%3E");
+  animation-name: waveMotionTop;
 }
 
 .rsvp-section::after {
-  bottom: -2px;
+  bottom: -18px;
   height: 132px;
-  background-size: 720px 132px;
+  background-size: 100% 132px;
   background-image: url("data:image/svg+xml,%3Csvg width='720' height='132' viewBox='0 0 720 132' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 132H720V70C682 88 650 90 604 68C556 45 512 52 466 71C418 91 379 92 335 65C299 43 266 48 226 74C181 102 132 90 96 69C61 49 34 54 0 76V132Z' fill='%23ffffff'/%3E%3Cpath d='M0 76C34 54 61 49 96 69C132 90 181 102 226 74C266 48 299 43 335 65C379 92 418 91 466 71C512 52 556 45 604 68C650 90 682 88 720 70V31C682 48 650 50 604 29C558 7 512 15 466 35C420 54 381 53 335 29C296 8 263 13 226 37C180 67 134 55 96 34C60 14 34 19 0 38V76Z' fill='%23df6fa7' fill-opacity='0.54'/%3E%3C/svg%3E");
   animation-direction: alternate-reverse;
 }
@@ -1413,7 +1422,7 @@ img {
   --o: 0.62;
   --r: -36deg;
   left: 5%;
-  top: -55%;
+  top: -60%;
 }
 
 
@@ -1424,7 +1433,7 @@ img {
 }
 
 .final-copy p {
-  margin: 0 0 46px 0;
+  margin: -20px 0 46px 0;
   color: #adac55;
   font-family: "Bickham Script Pro 3", "Great Vibes", var(--serif-display);
   font-size: clamp(3.9rem, 15.2vw, 6rem);
@@ -1579,11 +1588,21 @@ img {
 
 @keyframes waveMotion {
   0% {
-    transform: translateX(0);
+    transform: translateY(0) scaleX(1.01);
   }
 
   100% {
-    transform: translateX(34px);
+    transform: translateY(6px) scaleX(1.03);
+  }
+}
+
+@keyframes waveMotionTop {
+  0% {
+    transform: translateY(0) scaleX(1.01);
+  }
+
+  100% {
+    transform: translateY(0) scaleX(1.03);
   }
 }
 
@@ -1701,7 +1720,7 @@ img {
   }
 
   .open-rose-left {
-    left: -80px;
+    left: -60px;
     top: 4px;
     width: min(52vw, 206px);
   }
@@ -1753,18 +1772,20 @@ img {
   }
 
   .rsvp-section {
-    min-height: max(124svh, 1040px);
-    padding: 184px 20px 210px;
+    min-height: max(112svh, 940px);
+    padding: 184px 20px 132px;
   }
 
   .rsvp-section::before {
     height: 118px;
-    background-size: 720px 118px;
+    background-size: 100% 118px;
+    top: -14px;
   }
 
   .rsvp-section::after {
     height: 116px;
-    background-size: 720px 116px;
+    background-size: 100% 116px;
+    bottom: -16px;
   }
 
   .rsvp-panel {
@@ -1836,7 +1857,7 @@ img {
 
   .final-pink-stem {
     left: 4%;
-    top: calc(56% - 60px);
+    top: calc(56% - 40px);
   }
 
   .radio-group label {
@@ -1914,9 +1935,9 @@ img {
   }
 
   .open-rose-left {
-    left: -74px;
-    top: -2px;
-    width: min(48vw, 188px);
+    left: -70px;
+    top: -50px;
+    width: min(60vw, 248px);
   }
 
   .open-rose-right {
@@ -1950,9 +1971,9 @@ img {
   }
 
   .rsvp-section {
-    min-height: max(146svh, 1020px);
+    min-height: max(124svh, 890px);
     padding-top: 154px;
-    padding-bottom: 190px;
+    padding-bottom: 116px;
   }
 
   .rsvp-panel h2 {
@@ -1991,7 +2012,7 @@ img {
   }
 
   .bunchflowers {
-    bottom: -82px;
+    bottom: -22px;
     width: min(128vw, 610px);
   }
 }
@@ -2069,7 +2090,7 @@ img {
   }
 
   .bunchflowers {
-    bottom: -76px;
+    bottom: -26px;
   }
 }
 
