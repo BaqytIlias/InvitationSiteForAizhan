@@ -1375,7 +1375,7 @@ img {
 
 .final-section {
   align-content: start;
-  min-height: 80svh;
+  min-height: 90svh;
   background: #ffffff;
   text-align: center;
 }
@@ -1457,7 +1457,7 @@ img {
   gap: 0;
   width: min(94vw, 430px);
   padding: 0 10px;
-  
+
 }
 
 .count-card {
@@ -1940,7 +1940,7 @@ img {
   .address {
     margin-top: 10px;
     margin-bottom: 12px;
-    font-size: clamp(1.45rem, 6.5vw, 1.78rem);
+    font-size: 1.38rem;
     line-height: 1.28;
   }
 
