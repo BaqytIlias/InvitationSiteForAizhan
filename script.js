@@ -43,6 +43,33 @@ let audioReady = false;
 let musicWanted = true;
 let lifecyclePausedMusic = false;
 
+function markIntroFontsReady() {
+  body.classList.add("fonts-ready");
+}
+
+function prepareIntroFonts() {
+  const fallbackTimer = window.setTimeout(markIntroFontsReady, 2400);
+
+  if (!document.fonts || typeof document.fonts.load !== "function") {
+    window.clearTimeout(fallbackTimer);
+    markIntroFontsReady();
+    return;
+  }
+
+  Promise.all([
+    document.fonts.load('1em "Bickham Script Pro 3"', "Aizhan"),
+    document.fonts.load('1em "Bickham Script MM Swash Capitals"', "A"),
+  ])
+    .then(() => {
+      window.clearTimeout(fallbackTimer);
+      markIntroFontsReady();
+    })
+    .catch(() => {
+      window.clearTimeout(fallbackTimer);
+      markIntroFontsReady();
+    });
+}
+
 function renderSplitScriptText(node, text) {
   const letters = Array.from(text.trim());
   const capital = letters.shift() || "";
@@ -277,6 +304,7 @@ async function handleRsvpSubmit(event) {
   }
 }
 
+prepareIntroFonts();
 applySettings();
 void startMusic();
 updateCountdown();
