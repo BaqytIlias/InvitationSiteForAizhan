@@ -342,6 +342,13 @@ img {
   color: var(--deep-sage);
 }
 
+.intro-title .intro-subtitle {
+  margin: clamp(8px, 1.2svh, 16px) 0 0;
+  font-size: clamp(1.02rem, 3.2vw, 1.32rem);
+  transform: translateX(clamp(70px, 18vw, 150px));
+  white-space: nowrap;
+}
+
 .envelope-button {
   position: relative;
   z-index: 3;
