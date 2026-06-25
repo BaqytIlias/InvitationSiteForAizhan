@@ -647,7 +647,7 @@ img {
   place-items: start center;
   padding-top: 60px;
   margin-top: -50px;
-  margin-bottom: 20px;
+  
   background: #a4b22a;
   color: var(--ivory);
 }
@@ -697,10 +697,11 @@ img {
 
 .section-kicker {
   margin: 0 0 14px;
+  margin-top: -15px;
   font-family: var(--serif-display);
   font-size: 1.28rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.74);
+  color: white;
   text-align: center;
 }
 
@@ -871,6 +872,7 @@ img {
 
 .location-section {
   align-content: center;
+  margin-top: 10px;
   /* padding-top: 58px;
   padding-bottom: 30px; */
   /* background:
@@ -1004,7 +1006,7 @@ img {
   --o: 0.66;
   --r: -46deg;
   right: 10%;
-  top: -1%;
+  top: 1%;
 }
 
 .location-coral {
@@ -1028,7 +1030,7 @@ img {
   --o: 0.7;
   --r: 32deg;
   left: 25%;
-  top: 2%;
+  top: 3%;
 }
 
 .timing-section {
@@ -1460,7 +1462,7 @@ img {
 
 .final-sprig-rose {
   right: 2%;
-  top: -40px;
+  top: -30px;
   width: 42px;
   transform: translateX(-50%) rotate(297deg);
 }
@@ -1828,7 +1830,7 @@ img {
 
   .location-leaf {
     right: 7%;
-    top: -1%;
+    top: 1%;
   }
 
   .location-coral {
@@ -1843,7 +1845,7 @@ img {
 
   .location-small-pink {
     left: 8%;
-    top: 4%;
+    top: 3%;
     bottom: auto;
   }
 
@@ -1958,11 +1960,11 @@ img {
   }
 
   .location-leaf {
-    top: -4%;
+    top: 1%;
   }
 
   .location-small-pink {
-    top: 0;
+    top: 3%;
   }
 
   .address {
@@ -2084,11 +2086,11 @@ img {
   }
 
   .location-leaf {
-    top: -2%;
+    top: 1%;
   }
 
   .location-small-pink {
-    top: 2%;
+    top: 3%;
   }
 
   .countdown {
