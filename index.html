@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aizhan | Qyz Uzatu 20.18</title>
+  <title>Aizhan | Qyz Uzatu 20.08</title>
   <meta name="description" content="Aizhan қыз ұзату тойына арналған электронды шақыру." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,16 +12,38 @@
   <link rel="icon" href="assets/pechat.png" />
   <link rel="preload" href="assets/fonts/bickhamscriptthree.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="preload" href="assets/fonts/bickham-script-mm-swash-capitals.ttf" as="font" type="font/ttf" crossorigin />
-  <link rel="stylesheet" href="styles.css?v=20260626-desktop-overlay-scroll-fix" />
+  <link rel="preload" href="assets/fonts/CormorantGaramond-VariableFont_wght.ttf" as="font" type="font/ttf"
+    crossorigin />
+  <link rel="preload" href="assets/pechat.png" as="image" />
+  <link rel="stylesheet" href="styles.css?v=20260626-desktop-overlay-v2" />
 </head>
 
 <body class="is-locked">
   <div class="desktop-overlay" id="desktopOverlay">
     <div class="desktop-overlay-inner">
       <img class="desktop-overlay-icon" src="assets/pechat.png" alt="" aria-hidden="true" />
-      <p class="desktop-overlay-text">Сайт мобильді телефон арқылы ғана қолжетімді</p>
+      <p class="desktop-overlay-text">Сайт тек мобильді телефон арқылы ғана қолжетімді</p>
     </div>
   </div>
+  <script>
+    (function () {
+      var overlay = document.getElementById('desktopOverlay');
+      if (!overlay) return;
+      // Wait for font + image, then reveal
+      var img = overlay.querySelector('.desktop-overlay-icon');
+      function reveal() { overlay.classList.add('is-ready'); }
+      var fontPromise = (document.fonts && document.fonts.load)
+        ? document.fonts.load('400 1em "Cormorant Garamond Local"', 'Сайт')
+        : Promise.resolve();
+      var imgPromise = new Promise(function (ok) {
+        if (img && img.complete) return ok();
+        if (img) { img.onload = ok; img.onerror = ok; } else { ok(); }
+      });
+      Promise.all([fontPromise, imgPromise]).then(reveal).catch(reveal);
+      // Safety fallback: reveal after 400ms no matter what
+      setTimeout(reveal, 400);
+    })();
+  </script>
   <div class="page-shell">
     <button class="music-button" id="musicButton" type="button" aria-label="Музыканы қосу" hidden>
       <img class="music-ring" src="assets/pinkmusiccircle.png" alt="" aria-hidden="true" />
