@@ -506,9 +506,15 @@ body:not(.fonts-ready) .intro-name {
 }
 
 .scroll-hint {
-  margin-top: 64px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(54px, calc(env(safe-area-inset-bottom) + 38px));
+  margin: 0 auto;
   color: black;
-  z-index: 0;
+  z-index: 12;
+  line-height: 1.35;
+  pointer-events: none;
 }
 
 .music-button {
@@ -660,7 +666,7 @@ body:not(.fonts-ready) .intro-name {
   place-items: start center;
   padding-top: 60px;
   margin-top: -50px;
-  
+
   background: #a4b22a;
   color: var(--ivory);
 }
@@ -1015,7 +1021,7 @@ body:not(.fonts-ready) .intro-name {
 }
 
 .location-leaf {
-  --w: min(17vw, 70px);
+  --w: min(15vw, 60px);
   --o: 0.66;
   --r: -46deg;
   right: 10%;
@@ -1039,7 +1045,7 @@ body:not(.fonts-ready) .intro-name {
 }
 
 .location-small-pink {
-  --w: min(14vw, 58px);
+  --w: min(12vw, 48px);
   --o: 0.7;
   --r: 32deg;
   left: 25%;
